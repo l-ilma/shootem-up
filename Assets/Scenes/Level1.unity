@@ -14054,7 +14054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1233181917}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 23.37, y: -3.228, z: 0}
+  m_LocalPosition: {x: 21.64, y: -3.228, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14174,8 +14174,8 @@ MonoBehaviour:
   damage: 2
   speed: 3
   startingHealth: 3
-  maxMovingDistance: 0
-  startMovementFromRightToLeft: 0
+  maxMovingDistance: 6
+  startMovementFromRightToLeft: 1
 --- !u!1 &1276998799
 GameObject:
   m_ObjectHideFlags: 0
@@ -16618,7 +16618,7 @@ MonoBehaviour:
   damage: 2
   speed: 3
   startingHealth: 3
-  maxMovingDistance: 0
+  maxMovingDistance: 1.5
   startMovementFromRightToLeft: 0
 --- !u!61 &1576765567
 BoxCollider2D:
@@ -18567,7 +18567,7 @@ MonoBehaviour:
   damage: 2
   speed: 3
   startingHealth: 3
-  maxMovingDistance: 0
+  maxMovingDistance: 1
   startMovementFromRightToLeft: 0
 --- !u!61 &1699843460
 BoxCollider2D:
@@ -21231,7 +21231,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2098895475}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.83, y: -2.23, z: 0}
+  m_LocalPosition: {x: -0.82, y: -2.23, z: 0}
   m_LocalScale: {x: 1.0584, y: 1.2219, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

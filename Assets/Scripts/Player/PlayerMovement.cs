@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private KeyCode left;
     [SerializeField] private KeyCode right;
     [SerializeField] private KeyCode jump;
+    [SerializeField] private AudioClip jumpSound;
 
     private Rigidbody2D _body;
     private Animator _animator;
@@ -64,6 +65,7 @@ public class PlayerMovement : MonoBehaviour
     {
         _body.velocity = new Vector2(_body.velocity.x, jumpSpeed);
         _animator.SetTrigger(Airborne);
+        SoundManager.Instance.PlaySound(jumpSound);
     }
 
     private bool IsGrounded()

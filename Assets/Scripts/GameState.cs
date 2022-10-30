@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class GameState
 {
-    public static int CurrentCharacterIndex = 1;
+    public static int CurrentCharacterIndex = 0;
     public static bool IsSinglePlayer = true;
     public static bool WasMultiplayer = false;
     public static int CurrentLevel = 1;

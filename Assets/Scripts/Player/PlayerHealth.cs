@@ -3,6 +3,8 @@
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float startingHealth;
+    [SerializeField] private AudioClip hitSound;
+    [SerializeField] private AudioClip deadSound;
 
     private static readonly int Die = Animator.StringToHash("die");
     private static readonly int Hurt = Animator.StringToHash("hurt");
@@ -26,12 +28,14 @@ public class PlayerHealth : MonoBehaviour
         if (CurrentHealth > 0)
         {
             _animator.SetTrigger(Hurt);
+            SoundManager.Instance.PlaySound(hitSound);
         }
         else
         {
             if (dead) return;
 
             _animator.SetTrigger(Die);
+            SoundManager.Instance.PlaySound(deadSound);
             GetComponent<PlayerMovement>().enabled = false;
             dead = true;
             if (GameState.IsSinglePlayer)

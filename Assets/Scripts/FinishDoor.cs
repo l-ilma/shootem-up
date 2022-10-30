@@ -9,7 +9,8 @@ public class FinishDoor : MonoBehaviour
     [SerializeField] private GameObject winScreen;
 
     private readonly List<GameObject> _playersPassedLevel = new List<GameObject>();
-    private  List<GameObject> _alivePlayers = new List<GameObject>();
+    private List<GameObject> _alivePlayers = new List<GameObject>();
+    [SerializeField] private AudioClip winSound;
 
     private void Awake()
     {
@@ -64,6 +65,7 @@ public class FinishDoor : MonoBehaviour
                 player.GetComponent<PlayerMovement>().enabled = false;
                 player.GetComponent<PlayerAttack>().enabled = false;
                 player.GetComponent<Animator>().SetTrigger("win");
+                SoundManager.Instance.PlaySound(winSound);
             });
         }
         else
@@ -72,7 +74,7 @@ public class FinishDoor : MonoBehaviour
             {
                 // when starting the new level, the game is single player only
                 // when restarting only single player is loaded
-                GameState.WasMultiplayer = false; 
+                GameState.WasMultiplayer = false;
             }
             GameState.CurrentLevel++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

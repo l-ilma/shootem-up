@@ -49,7 +49,7 @@ public class MenuController : MonoBehaviour
         
         if (Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Return))
         {
-            SceneManager.LoadScene(GameState.CurrentLevel + 1);
+            SceneManager.LoadScene(2); // first level
         }
     }
     

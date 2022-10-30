@@ -4883,8 +4883,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 3
-  hitSound: {fileID: 0}
-  deadSound: {fileID: 0}
+  hitSound: {fileID: 8300000, guid: 3a3db38a6dd680c46bff1917432abdf5, type: 3}
+  deadSound: {fileID: 8300000, guid: 803f774d6834cbd44b0949930a503283, type: 3}
 --- !u!114 &346879370
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4934,7 +4934,7 @@ MonoBehaviour:
   left: 97
   right: 100
   jump: 119
-  jumpSound: {fileID: 0}
+  jumpSound: {fileID: 8300000, guid: 3190f5940754ee74c91ac7020a68bba9, type: 3}
 --- !u!50 &346879372
 Rigidbody2D:
   serializedVersion: 4
@@ -29698,7 +29698,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 6.5452156, y: -2.2649808}
+  m_Offset: {x: 5.9035234, y: -2.2649808}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -29709,5 +29709,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.8345985, y: 0.4564047}
+  m_Size: {x: 2.5512142, y: 0.4564047}
   m_EdgeRadius: 0

@@ -1,10 +1,14 @@
-﻿using UnityEngine;
+﻿using System.Runtime.InteropServices;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
     [SerializeField] private GameObject winScreen;
+    
+    [DllImport("__Internal")]
+    private static extern void CloseWindow();
 
     private void Awake()
     {
@@ -33,13 +37,9 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
-        if (Application.isEditor)
+        if (Application.platform == RuntimePlatform.WebGLPlayer)
         {
-            UnityEditor.EditorApplication.isPlaying = false;
-        } 
-        else if (Application.platform == RuntimePlatform.WebGLPlayer)
-        {
-            Application.OpenURL("about:blank");
+            CloseWindow();
         }
         else
         {

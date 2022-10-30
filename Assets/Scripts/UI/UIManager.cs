@@ -33,7 +33,17 @@ public class UIManager : MonoBehaviour
 
     public void Quit()
     {
-        Application.Quit();
-        // UnityEditor.EditorApplication.isPlaying = false;
+        if (Application.isEditor)
+        {
+            UnityEditor.EditorApplication.isPlaying = false;
+        } 
+        else if (Application.platform == RuntimePlatform.WebGLPlayer)
+        {
+            Application.OpenURL("about:blank");
+        }
+        else
+        {
+            Application.Quit();
+        }
     }
 }

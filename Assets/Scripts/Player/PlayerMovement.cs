@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         var bounds = _boxCollider2D.bounds;
         RaycastHit2D raycastHit2D = Physics2D.BoxCast(bounds.center, bounds.size, 0,
-            Vector2.down, 0.01f, groundLayer);
+            Vector2.down, 0.03f, groundLayer);
         return raycastHit2D.collider != null;
     }
 

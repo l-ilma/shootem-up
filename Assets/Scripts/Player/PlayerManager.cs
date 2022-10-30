@@ -16,9 +16,10 @@ public class PlayerManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameState.IsSinglePlayer && GameState.GetActiveObjects(players).Length > 1)
+        if (GameState.IsSinglePlayer && GameState.GetActivePlayerObjects(players).Length > 1)
         {
             GameState.CurrentCharacterIndex = !players[0].GetComponent<PlayerMovement>().enabled ? 1 : 0;
+            GameState.SetActiveObject(players);
         }
     }
 }

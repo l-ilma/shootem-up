@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
     private float _timeElapsed = Mathf.Infinity;
     private PlayerMovement _playerMovement;
     private Animator _animator;
-    
+
     private static readonly int Attacking = Animator.StringToHash("attack");
 
     private void Awake()
@@ -24,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
     {
         if (GameState.IsSinglePlayer)
         {
-            if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter))
+            if ((Input.GetKey(KeyCode.Space) || Input.GetKey(KeyCode.KeypadEnter) || Input.GetKey(KeyCode.Return))
                 && _playerMovement.CanAttack() && _timeElapsed >= attackCooldown)
             {
                 Attack();
@@ -32,9 +32,16 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            if (Input.GetKey(fire) && _playerMovement.CanAttack() && _timeElapsed >= attackCooldown)
+            if (_playerMovement.CanAttack() && _timeElapsed >= attackCooldown)
             {
-                Attack();
+                if (Input.GetKey(fire))
+                {
+                    Attack();
+                }
+                else if (Input.GetKey(KeyCode.Return) && fire == KeyCode.KeypadEnter) // enable shooting with return key as well
+                {
+                    Attack();
+                }
             }
         }
         _timeElapsed += Time.deltaTime;

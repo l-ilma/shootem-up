@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour {
     [SerializeField] private float cameraSpeed = 1.5f;
     
     private float _lookAhead;
+    private readonly float defaultSinglePlayerCameraSize = 5;
     private Camera _camera;
 
     private void Awake()
@@ -39,14 +40,11 @@ public class CameraController : MonoBehaviour {
     }
  
     private void SetCameraSize() {
-        // horizontal size is based on actual screen ratio
         float minSizeX = minSizeY * Screen.width / Screen.height;
  
-        // multiplying by 0.5, because the orthographicSize is actually half the height
         float width = Mathf.Abs(players[0].position.x - players[1].position.x) * 0.5f + 10f;
         float height = Mathf.Abs(players[0].position.y - players[1].position.y) * 0.5f;
  
-        // computing the size
         float camSizeX = Mathf.Max(width, minSizeX);
         _camera.orthographicSize = Mathf.Max(height,
             camSizeX * Screen.height / Screen.width, minSizeY);
@@ -57,5 +55,6 @@ public class CameraController : MonoBehaviour {
         var playerPosition = players[GameState.CurrentCharacterIndex].position;
         transform.position = new Vector3(playerPosition.x + _lookAhead, playerPosition.y + 1, transform.position.z);
         _lookAhead = Mathf.Lerp(_lookAhead, aheadDistance * players[0].localScale.x, Time.deltaTime * cameraSpeed);
+        _camera.orthographicSize = defaultSinglePlayerCameraSize;
     }
 }

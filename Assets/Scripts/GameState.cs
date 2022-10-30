@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class GameState
 {
-    public static int CurrentCharacterIndex = 0;
+    public static int CurrentCharacterIndex = 1;
     public static bool IsSinglePlayer = true;
     public static bool WasMultiplayer = false;
     public static int CurrentLevel = 1;
@@ -16,7 +16,12 @@ public static class GameState
         }
     }
 
-    public static GameObject[] GetActiveObjects(GameObject[] gameObjects)
+    public static GameObject[] GetAlivePlayers(GameObject[] gameObjects)
+    {
+        return Array.FindAll(gameObjects, go => go.GetComponent<PlayerMovement>().enabled);
+    }
+
+    public static GameObject[] GetActivePlayerObjects(GameObject[] gameObjects)
     {
         return Array.FindAll(gameObjects, go => go.activeInHierarchy);
     }

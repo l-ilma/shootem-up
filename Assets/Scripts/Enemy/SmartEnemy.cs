@@ -57,8 +57,8 @@ public class SmartEnemy : Enemy
                 SetScale(playerPosition);
                 
                 _isAttacking = true;
-                _animator.SetBool(Run, true);
-                var destinationX = Mathf.Clamp(playerPosition.x, _leftEdge, _rightEdge);
+                Animator.SetBool(Run, true);
+                var destinationX = Mathf.Clamp(playerPosition.x, LeftEdge, RightEdge);
                 _attackDestination = new Vector3(destinationX, transform.position.y, transform.position.z);
                 _attackTimeElapsed = 0;
             }
@@ -73,7 +73,7 @@ public class SmartEnemy : Enemy
     private void Stop()
     {
         _isAttacking = false;
-        _animator.SetBool(Run, false);
+        Animator.SetBool(Run, false);
     }
 
     private void SetScale(Vector3 playerPosition)
@@ -81,14 +81,14 @@ public class SmartEnemy : Enemy
         float x;
         if (playerPosition.x > transform.position.x) // player on the right side
         {
-            x = Mathf.Sign(_currentScale.x) == 1 ? _currentScale.x : -1 * _currentScale.x;
+            x = Mathf.Sign(CurrentScale.x) == 1 ? CurrentScale.x : -1 * CurrentScale.x;
         }
         else // player on the left side
         {
-            x = Mathf.Sign(_currentScale.x) == 1 ? -1 * _currentScale.x : _currentScale.x;
+            x = Mathf.Sign(CurrentScale.x) == 1 ? -1 * CurrentScale.x : CurrentScale.x;
         }
-        _currentScale = new Vector3(x, _currentScale.y, _currentScale.z);
-        transform.localScale = _currentScale;
+        CurrentScale = new Vector3(x, CurrentScale.y, CurrentScale.z);
+        transform.localScale = CurrentScale;
     }
 
     protected new void OnCollisionEnter2D(Collision2D col)

@@ -7,24 +7,25 @@ public class Enemy : MonoBehaviour
     [SerializeField] protected float startingHealth;
     [SerializeField] protected float maxMovingDistance;
     
-    protected Animator _animator;
     private float _currentHealth;
-    protected float _leftEdge;
-    protected float _rightEdge;
     private readonly float _hurtCooldown = 0.2f;
     private float _hurtTimeElapsed = Mathf.Infinity;
-    protected Vector3 _currentScale;
+    
+    protected float LeftEdge;
+    protected float RightEdge;
+    protected Animator Animator;
+    protected Vector3 CurrentScale;
     
     protected static readonly int Run = Animator.StringToHash("run");
     
     protected void Awake()
     {
-        _currentScale = transform.localScale;
+        CurrentScale = transform.localScale;
         _currentHealth = startingHealth;
         var position = transform.position;
-        _leftEdge = position.x - maxMovingDistance;
-        _rightEdge = position.x + maxMovingDistance;
-        _animator = GetComponent<Animator>();
+        LeftEdge = position.x - maxMovingDistance;
+        RightEdge = position.x + maxMovingDistance;
+        Animator = GetComponent<Animator>();
     }
 
     protected void Update()

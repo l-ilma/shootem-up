@@ -40,8 +40,11 @@ public class PlayerHealth : MonoBehaviour
             }
             else
             {
-                GameState.WasMultiplayer = true;
+                // flag to know that game was multiplayer prior to one player dying
+                // required when restarting the game
+                GameState.WasMultiplayer = true; 
                 GameState.IsSinglePlayer = true;
+                GameState.CurrentCharacterIndex = GameState.CurrentCharacterIndex == 0 ? 1 : 0;
             }
         }
     }

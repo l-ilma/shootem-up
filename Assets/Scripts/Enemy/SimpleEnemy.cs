@@ -15,31 +15,31 @@ public class SimpleEnemy : Enemy
         var position = transform.position;
         if (startMovementFromRightToLeft)
         {
-            if (position.x > _leftEdge)
+            if (position.x > LeftEdge)
             {
                 transform.position = new Vector3(transform.position.x - speed * Time.deltaTime, position.y,
                     position.z);
-                transform.localScale = new Vector3(-1 * _currentScale.x, _currentScale.y, 1);
-                _animator.SetBool(Run, true);
+                transform.localScale = new Vector3(-1 * CurrentScale.x, CurrentScale.y, 1);
+                Animator.SetBool(Run, true);
             }
             else
             {
                 startMovementFromRightToLeft = false;
-                transform.localScale = _currentScale;
+                transform.localScale = CurrentScale;
             }
         }
         else
         {
-            if (position.x < _rightEdge)
+            if (position.x < RightEdge)
             {
                 transform.position = new Vector3(position.x + speed * Time.deltaTime, position.y, position.z);
-                transform.localScale = _currentScale;
-                _animator.SetBool(Run, true);
+                transform.localScale = CurrentScale;
+                Animator.SetBool(Run, true);
             }
             else
             {
                 startMovementFromRightToLeft = true;
-                transform.localScale = new Vector3(-1 * _currentScale.x, _currentScale.y, 1);
+                transform.localScale = new Vector3(-1 * CurrentScale.x, CurrentScale.y, 1);
             }
         }
     }

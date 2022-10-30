@@ -4,19 +4,14 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     [SerializeField] private GameObject gameOverScreen;
-    [SerializeField] private GameObject[] healthBars;
+    [SerializeField] private GameObject winScreen;
 
     private void Awake()
     {
         gameOverScreen.SetActive(false);
-        if (GameState.IsSinglePlayer) SetCurrentPlayerHealthBar();
+        if (winScreen != null) winScreen.SetActive(false);
     }
-
-    private void SetCurrentPlayerHealthBar()
-    {
-       GameState.SetActiveObject(healthBars);
-    }
-
+    
     public void GameOver()
     {
         gameOverScreen.SetActive(true);
@@ -24,7 +19,7 @@ public class UIManager : MonoBehaviour
 
     public void Restart()
     {
-        if (GameState.WasMultiplayer)
+        if (GameState.WasMultiplayer) // if the game was multiplayer, load both players on restart
         {
             GameState.IsSinglePlayer = false;
         }
